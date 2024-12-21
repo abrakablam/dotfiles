@@ -1,0 +1,116 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# this is the core 'format string' that starship builds from, it goes in this order:
+# username -> dir -> git -> lang -> venv/docker/conda -> time
+format = """
+[░▒▓](bg:src_black fg:src_blue)\
+$username\
+[░▒▓](bg:src_blue fg:src_cyan)\
+$directory\
+[](fg:src_cyan bg:src_green)\
+$git_branch\
+$git_status\
+[](fg:src_green bg:src_magenta)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:src_magenta bg:src_yellow)\
+$docker_context\
+$conda\
+[](fg:src_yellow bg:src_cyan)\
+$time\
+[░▒▓](fg:src_black bg:src_cyan)\
+$line_break$character"""
+
+palette = 'srcery'
+
+[palettes.srcery]
+src_black = "#1c1b19"
+src_red = "#ef2f27"
+src_green = "#519f50"
+src_yellow = "#fbb829"
+src_blue = "#2c78bf"
+src_magenta = "#e02c6d"
+src_cyan = "#0aaeb3"
+src_white = "#fce8c3"
+src_orange = "ff5f00"
+src_brightblack = "#918175"
+src_brightwhite = "#fce8c3"
+
+[username]
+show_always = true
+style_user = "bg:src_blue fg:src_white"
+style_root = "bg:src_blue fg:src_white"
+format = '[ $user ]($style)'
+
+[directory]
+style = "bg:src_cyan fg:src_brightwhite"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:src_green"
+format = '[[ $symbol $branch ](fg:src_brightwhite bg:src_green)]($style)'
+
+[git_status]
+style = "bg:src_green"
+format = '[[($all_status$ahead_behind )](fg:src_brightwhite bg:src_green)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:src_green"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:src_green"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:src_green"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[python]
+symbol = ""
+style = "bg:src_green"
+format = '[[ $symbol( $version) (\($virtualenv\) )](fg:src_brightwhite bg:src_magenta)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:color_bg3"
+format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+
+[time]
+disabled = false
+use_12hr = true
+time_format = "%I:%M %p"
+style = "bg:color_bg1"
+format = '[[  $time ](fg:src_brightwhite bg:src_cyan)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[↪](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
