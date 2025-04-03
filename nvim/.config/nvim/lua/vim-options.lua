@@ -8,3 +8,4 @@ vim.cmd("set relativenumber")
 vim.cmd("set signcolumn=auto")
 vim.opt.swapfile = false -- turning off swapfiles because I hate these errors
 vim.g.mapleader= " "
+vim.opt.textwidth = 80

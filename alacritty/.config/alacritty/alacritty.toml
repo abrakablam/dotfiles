@@ -1,7 +1,7 @@
 [env]
 term = "xterm-256color"
 [font]
-size = 23.0
+size = 15.0
 
 [font.normal]
 family = "CaskaydiaMono NFM"

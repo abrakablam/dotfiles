@@ -74,7 +74,7 @@ format = '[[($all_status$ahead_behind )](fg:src_brightwhite bg:src_green)]($styl
 [nodejs]
 symbol = ""
 style = "bg:src_green"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+format = '[[ $symbol( $version) ](fg:src_brightwhite bg:src_magenta)]($style)'
 
 [rust]
 symbol = ""
